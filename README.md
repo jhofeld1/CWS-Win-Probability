@@ -157,9 +157,8 @@ Four-panel matplotlib/seaborn figure (16×12 in, 150 DPI):
 ---
 
 ## Limitations & Known Assumptions
-
+- **SEC vs. ACC Run environment and statistics.** The model compares performance and player stats from two different conferences in college baseball with different competition levels. While both conferences are extremely strong, they differ in terms of the depth of pitching staffs, which can alter a player's statistical output and overall performance.
 - **RE24 matrix is MLB-derived.** The Omaha scalar (1.15) partially corrects for the college run environment but is estimated from only 5 bracket games — a small sample inflated by two blowouts (12–7, 11–4).
-- **wOBA weights are MLB-calibrated.** True college linear weights would require play-by-play RE24 data across multiple D1 seasons (~10,000+ half-innings per base/out cell for stability). No reliable public dataset currently exists at this scale, therefore wOBA weights we calculated from Omaha-adjusted MLB RE24.
 - **HR allowed is estimated.** The pitcher CSV has no HR-allowed column so the model approximates it as `H × 0.09`. This introduces noise into FIP for individual pitchers but is partially mitigated by IP-weighting across a full staff.
 - **wOBA denominator is AB + BB + HBP, not PA.** Sacrifice flies and sacrifice hits are excluded from both numerator and denominator, which is standard but worth noting.
 - **wOBA R/G is informational only.** Win probability is driven by actual runs scored per game and IP-weighted FIP — not the wOBA-derived run estimator.
